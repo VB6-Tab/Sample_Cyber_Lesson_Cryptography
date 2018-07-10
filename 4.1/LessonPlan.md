@@ -2,7 +2,7 @@
 
 ### Overview
 
-In today's class, students will receive their first exposure to the cryptography and encryption. They will spend a major portion of class focused on the Caesar cipher, learning it's basic mechanism, implementing it in code, and discussing the vulnerabilities present within it.   
+In today's class, students will receive their first exposure to the cryptography and encryption. They will spend a major portion of class focused on the Caesar cipher, learning it's basic mechanism, implementing it in code, and discussing the vulnerabilities present within it.  
 
 ### Class Objectives
 
@@ -96,25 +96,44 @@ In today's class, students will receive their first exposure to the cryptography
 
 * Now it's time to switch away from the PowerPoint temporarily and into the code editor.
 
-* Send students the following as a first step in implementing the Caesar cipher.  
+* Send students the following as a first step in implementing the Caesar cipher.
+
+  ![Vowel Replacer Example](assets/07-VowelReplacer.gif)
 
   * **Instructions:**
 
-    * XXX
+    * Take in some user input for the message that they desire to encode.
+
+    * Loop through every letter in the message and perform the following actions...
+
+      * If the letter "a" is found, replace it with "b"
+      * If the letter "e" is found, replace it with "f"
+      * If the letter "i" is found, replace it with "j"
+      * If the letter "o" is found, replace it with "p"
+      * If the letter "u" is found, replace it with "v"
+      * If the letter "y" is found, replace it with "z"
+    
+    * Print out the now-encoded message to the terminal
 
   * **Hints:**
 
-    * XXX
+    * Strings operate in much the same way lists do. This means that it is possible to loop through every character in a list using a for loop!
 
-### 8. Instructor Do: Review Python Vowel Replacer (0:10)
+### 8. Instructor Do: Review Python Vowel Replacer (0:05)
 
 * Next, take a few moments to review the solution. As you do, use the below talking points to guide your discussion:
-  
-  * XXX
 
-  * XXX
+  * First, we created a variable called `original_string` meant to capture the user's input. 
 
-  * XXX
+  * Next, we created an empty variable called `encoded_string`. This will serve as our placeholder for the encrypted string.
+
+  * Next, we created a for-loop that loops through each character (letter) of the string. 
+
+  * For each iteration of the lop, we run conditional checks to see if the letter matches a vowel. If it does, then we add the encrypted letter to `encoded_string`. If it doesn't, we add add the original letter to `encoded_string`.
+
+  * Finally, we print the final version of `encoded_string` for the user. 
+
+  ![Vowel Replacer Code](assets/08-VowelReplacerCode.png)
 
 ### 9. Instructor Do: Python Vowel Replacer with Dicts (0:10)
 
@@ -122,47 +141,61 @@ In today's class, students will receive their first exposure to the cryptography
 
 * Open the solution file provided and use the below talking points to guide your discussion:
 
-  * XXX
+  * Begin by reminding students that dictionaries are used to relate keys to values.
 
-  * XXX
+  * In this case, we're using our keys to represent the original plain text letters. Our dictionary values represent the encrypted cipher text letters.
 
-  * XXX
+    ![Shifty Dicty](assets/09-ShiftyDicty.png)
+
+  * Next, we use the same for-loop as in our previous example to loop through each character of our original message.
+
+  * This time, however, we use `if`-`in` code to check if our character of index falls within the dictionary's keys. If the character falls within the dictionary, we add the encrypted letter to `encoded_message`. If it does not, then we add the original letter to `encoded_message`. 
+
+  * Once the loop is complete, we print the final version of `encoded_message`.
+
+    ![Replacer With Dict](assets/10-ReplacerWithDict.png)
 
 * Send students your solution file once you have completed your review.
 
-### 10.  Students Do: Python Letter to Numbers with Dicts  (0:15)
+### 10. Students Do: The Shifted Dictionary (0:10)
 
-* Next, students will expand the example you provided to map every single letter to its numeric reference.
+* Students will now work to create and use a shifted dictionary using the skills they have gained thus far.
+
+  ![Shifted Dictionary](assets/11-ShiftedDict.gif)
 
 * Send students the following instructions to guide them on the next step:
 
   * **Instructions:**
 
-    * XXX
+    * Create a dictionary where each letter of the alphabet will be shifted over five characters.
+    
+      * This means that "a" will be equal to "f", "b" will be equal to "g", "c" will be equal to "h", and so on...
+
+    * Use the dictionary created in order to then encode a user-inputted message.
 
   * **Hints:**
 
-    * XXX
+    * Don't want to have to think about what every letter will be when shifted? Simply look at the below alphabet to see what every character becomes when shifted over five letters.
 
-### 11.  Instructor Do: Review Python Letter to Number with Dicts  (0:10)
+      `F G H I J K L M N O P Q R S T U V W X Y Z A B C D E`
+
+### 11. Instructor Do: Review The Shifted Dictionary  (0:05)
 
 * Once time is up, review the exercise using the below talking points to guide your discussion:
+  
+  * In this case, we've simply expanded the exercise from the previous example -- explicitly mapping each key to a shifted version of itself.
 
-  * XXX
-
-  * XXX
-
-  * XXX
+    ![The Shifted Dict](assets/12-ShiftedDict.png)
 
 * Answer any questions that remain, before sharing your solution.
 
 -------
 
-### 12.  BREAK (0:15)
+### 12. BREAK (0:15)
 
 -------
 
-### 13.  Students Do: Python Dynamic Caesar Cipher (0:20)
+### 13. Students Do: Python Dynamic Caesar Cipher (0:25)
 
 * This next activity will be the most challenging for many of your students as they will be tasked with  modifying their previous code to handle various cipher key values. The  implementation will require a bit of logic and creative problem solving, but is well within their skill range.
 
@@ -170,27 +203,55 @@ In today's class, students will receive their first exposure to the cryptography
 
   * **Instructions:**
 
-    * XXX
+    * Create a command line application that takes in two user inputs (sentence and key). 
+
+    * The code should then output an encrypted version of the sentence using the specified key value. 
+
+      * For example, "cat" with a shift of three will become "fdw"
 
   * **Hints:**
 
-    * XXX
+    * This is a challenging exercise! Spend time breaking down the task into discrete programming tasks:
 
-### 14.  Instructor Review: Python Dynamic Caesar Cipher (0:10)
+      * Create two arrays. One to hold the original alphabet and one to hold the cipher alphabet. 
+
+      * Capture the user inputs and store them in variables.
+
+      * Use the key to create the cipher alphabet.
+
+      * Map the sentence to your new cipher alphabet. 
+
+    * Think about using two loops to create your shifted alphabet: one which loops through the alphabet starting from the key number up until the end and another which then loops through the beginning of the alphabet all the way up to the shift number.
+
+    * Again... Don't fret. Treat this like a brainteaser! Cybersecurity is all about creative problem solving. 
+
+### 14. Instructor Review: Python Dynamic Caesar Cipher (0:10)
 
 * Once time is up, spend the time necessary to review this solution in-depth.
 
 * Open the provided solution and use the below talking points to guide your discussion:
 
-  * XXX
+  * Begin, by acknowledging that this was a challenging exercise.
 
-  * XXX
+  * Then break down the code into five major sections. 
 
-  * XXX
+  * The first section is meant to capture the full alphabet in the array `regularAlphabet`.
 
-* Answer any questions that remain, before sharing your solution.
+  * The second section creates a variable called `cipherAlphabet` meant to hold the shifted version of the alphabet.
 
-### 15.  Instructor Do: Caesar's Vulnerabilities (0:05)
+  * The third section captures the user inputs (`sentence` and `shiftNumber`).
+
+  * The fourth section is where we use the user inputs to shift each letter of the alphabet according to the cipher. This is a tricky section of code, but at a high-level, it works by looping through each letter of the alphabet and adding the shift value to the array index to find the new value. Each shifted letter is added to the cipher alphabet. 
+
+  * The fifth section is where we loop through the original sentence and use the the cipher alphabet to encrypt. 
+
+  * Give students a few moments to digest the code before continuing. 
+
+    ![The Shifted Dict](assets/13-DynamicCaesar.png)
+
+* Answer any questions that remain, before sharing your solution. 
+
+### 15. Instructor Do: Caesar's Vulnerabilities (0:05)
 
 * Now, return back to the PowerPoint to the section titled Caesar's Vulnerabilities. Then use the slides provided to kick-off the coming thought exercise on cracking the Caesar cipher. 
 
@@ -198,7 +259,7 @@ In today's class, students will receive their first exposure to the cryptography
 
 ![image-20180708234513952](assets/05-Crypto.png)
 
-### 16.  Students Do: The Barbarian's Got Mail (0:15)
+### 16. Students Do: The Barbarian's Got Mail (0:15)
 
 * When prompted have students work with their neighbor on the final thought-exercise. 
 
@@ -224,7 +285,7 @@ In today's class, students will receive their first exposure to the cryptography
 
         * Be ready to share your approach with Caesar!
  
-### 17.  Instructor Do: Review the Barbarian's Got Mail  (0:05)
+### 17. Instructor Do: Review the Barbarian's Got Mail (0:05)
 
 * Have students share a few of their solutions prior to sharing the solution provided. 
 
@@ -242,7 +303,7 @@ In today's class, students will receive their first exposure to the cryptography
   
   * Feel encouraged to expand on this answer with stories or cases from your own work experience. 
 
-### 18.  Instructor Do: Prelude Next Class (0:05)
+### 18. Instructor Do: Prelude Next Class (0:05)
 
 * Finally, use the last slides of the presentation to conclude class. 
 
